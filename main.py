@@ -16,7 +16,7 @@ actcurrrateinput=input("курс доллара на момент открыти
 fincurrrateinput=input("курс доллара на момент окончания вклада")
 reinvestinput=int(input("Жми 1, если есть реинвест"))
 # v- сумма начального вклада
-v=float(vinput)
+v=int(vinput)
 # curr - валюта вклада
 curr=str(currinput)
 # m - количество месяцев вклада
@@ -68,11 +68,13 @@ adollfin=round((a/fincurrrate), 3)
 adollfinre=round((reinvest/fincurrrate), 3)
 # расчёты с учётом инфляции
 i=round((a-(a*0.01*infrate)), 3)
+ire=reinvest-(reinvest*0.01*infrate)
+profitre=ire-v
 print('Расчёт без капитализации')
 print('Сумма вклада по окончании равна' + ' ' + str(a) + curr)
 print('В долларовом эквиваленте на момент открытия это составляло:' + ' начальный депозит' + ' ' + '$'+ str(vdollini) + ' и с процентами' +' '+ '$'+ str(adollini))
 print('В долларовом эквиваленте на момент окончания это составило:' + ' начальный депозит' + ' '+ '$'+  str(vdollfin) +' '+  'и с процентами' + ' '+ '$'+ str(adollfin))
 print('С учётом инфляции в ' + str(infrate) +'%'+' ' + 'общая сумма составила'+' ' +  str(i) + curr)
 print("Расчёт с капитализацией")
-print('Сумма вклада по окончании равна' + ' ' + str(reinvest) + curr+' что эквивалентно $'+ str(adollinire) + 'по старому курсу' + 'и $'+str(adollfinre)+'по курсу на конец срока депозита')
-print('Сумма на 12 месяц равна '+str(m12))
+print('Сумма вклада по окончании равна' + ' ' + str(reinvest) + curr+' что эквивалентно $'+ str(adollinire) + 'по старому курсу ' + 'и $'+str(adollfinre)+'по курсу на конец срока депозита')
+print('С учётом инфляции в ' + str(infrate) +'%'+' ' + 'общая сумма составила'+' ' +  str(ire) + curr + ' вигода на сумму' + str(profitre))
